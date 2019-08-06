@@ -22,12 +22,8 @@ navs.forEach(link => link.addEventListener('mouseleave',
 
 /////////////// Text Content Reading Highlights //////////////////
 
-let textBox = document.querySelector('.content-section .text-content ')
-let textGoBox = document.querySelector('.inverse-content .text-content ')
-let textDestBox = document.querySelector('.content-destination p')
-let allTb = document.querySelectorAll('p')
-//console.log('index.js -> %callTb:', 'color: indigo', allTb)
 
+let allTb = document.querySelectorAll('p')
 
 
   allTb.forEach(tb => tb.addEventListener('mouseenter', function(e){
@@ -36,7 +32,7 @@ let allTb = document.querySelectorAll('p')
     e.stopPropagation()
   }))
   
-  allTb.forEach(tb =>tb.addEventListener('mouseleave', function(e){
+  allTb.forEach(tb =>tb.addEventListener('mouseout', function(e){
     e.target.style.background='transparent',
     e.target.style.color='black',
     e.stopPropagation()
@@ -57,5 +53,78 @@ document.addEventListener('readystatechange', function(){
     TweenMax.to(pgTitle, 1, {fontSize: '2rem',  rotation:'360', color:'blue', scale: 2.5, margin: '3% 0 3% 0'});
   } )
 
+    ////////////////////dblclick and auxclick ////////////////////// 
+  //////////////////////////////////// light & dark /////////////////////
+
+
+let doc =document.querySelector("body")
+let headerBox = document.querySelector("header")
+
+
+document.addEventListener("dblclick", function() {
+    
+    darkStyle();
+  });
+  
+ document.addEventListener("auxclick", function(e) {
+    
+    lightStyle();
+    e.preventDefault()
+  });
+  
+
+  
+  function darkStyle() {
+    doc.style.background = "darkslategray";
+    headerBox.style.background = "darkslategray";
+    doc.style.color = "white";
+    pgTitle.style.color = "white";
+    navs.forEach(link => link.style.color = "white");
+  }
+  
+  function lightStyle() {
+    doc.style.background = "";
+    headerBox.style.background = "";
+    doc.style.color = "";
+    pgTitle.style.color = "";
+    navs.forEach(link => link.style.color = "");
+  }
+  
+
+///////////////////// key down & key up//////////////
+
+  document.addEventListener("keydown", function(e) {
+    
+    wacky();
+  
+  });
   
   
+  
+  function wacky()  {
+    
+ if(KeyboardEvent.key ="w") {
+  let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    document.body.style.background = bgColor;}
+  
+    }
+
+
+    document.addEventListener("keyup", function(e) {
+    
+        lightStyle();
+      
+      });
+
+
+
+
+
+
+    doc.addEventListener("resize", function() {
+    
+        doc.style.background = 'red'
+      });
