@@ -7,8 +7,17 @@
 let navs = document.querySelectorAll("a");
 //console.log('index.js -> %cnavs:', 'color: blue', navs)
 
-navs.forEach(link => link.addEventListener('mouseover', (e => e.target.style.background = 'darkgray')))
-navs.forEach(link => link.addEventListener('mouseleave', (e => e.target.style.background = '')))
+navs.forEach(link => link.addEventListener('mouseover', 
+(e => 
+   { e.target.style.background = 'darkgray',
+    e.target.style.color = 'white'
+})));
+navs.forEach(link => link.addEventListener('mouseleave', 
+(e => 
+   { e.target.style.background = '',
+    e.target.style.color = ''}
+
+    )));
 
 
 /////////////// Text Content Reading Highlights //////////////////
@@ -39,9 +48,14 @@ let imgs = document.querySelectorAll("img")
 //console.log('index.js -> %cimgs:', 'color: crimson', imgs)
 imgs.forEach(img => img.addEventListener('contextmenu', (e => e.preventDefault())))
 
+//////////////////// Title Animation - ready state change////////////////
+let pgTitle = document.querySelector(".logo-heading")
+console.log('index.js -> %cpgTitle:', 'color: maroon', pgTitle)
 
 
-
+document.addEventListener('readystatechange', function(){
+    TweenMax.to(pgTitle, 1, {fontSize: '2rem',  rotation:'360', color:'blue', scale: 2.5, margin: '3% 0 3% 0'});
+  } )
 
   
   
