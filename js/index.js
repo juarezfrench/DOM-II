@@ -28,14 +28,14 @@ let allTb = document.querySelectorAll('p')
 
   allTb.forEach(tb => tb.addEventListener('mouseenter', function(e){
     e.target.style.background='lightgray',
-    e.target.style.color='blue',
-    e.stopPropagation()
+    e.target.style.color='blue'
+   
   }))
   
   allTb.forEach(tb =>tb.addEventListener('mouseout', function(e){
     e.target.style.background='transparent',
-    e.target.style.color='black',
-    e.stopPropagation()
+    e.target.style.color='black'
+    
   }))
 
 ////////////////Prevent context menu (right-click menu) on images//////////////////////
@@ -103,12 +103,12 @@ document.addEventListener("dblclick", function() {
   
   function wacky()  {
     
- if(KeyboardEvent.key ="w") {
+
   let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
-    document.body.style.background = bgColor;}
+    document.body.style.background = bgColor;
   
     }
 
